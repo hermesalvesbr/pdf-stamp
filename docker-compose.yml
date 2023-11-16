@@ -1,0 +1,32 @@
+version: "3"
+services:
+  directus:
+    image: directus/directus:latest
+    ports:
+      - 8055:8055
+    restart: always
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ./database:/directus/database
+    environment:
+      KEY: "255d861b-5ea1-5996-3737-922530ec40b1"
+      SECRET: "6116487b-cda1-52c2-3737-c8022c45e263"
+      EXTENSIONS_AUTO_RELOAD: "true"
+      ADMIN_EMAIL: "dev@softagon.com.br"
+      ADMIN_PASSWORD: "softagon"
+      NODE_PACKAGES: ""
+
+      # Assinador de PDF exige isto.
+      CONTENT_SECURITY_POLICY_DIRECTIVES: >
+        json: {
+          "defaultSrc":["'self'"],
+          "scriptSrc":["'self'","'unsafe-eval'","'unsafe-inline'","cdnjs.cloudflare.com"],
+          "connectSrc":["'self'","blob:","data:","'unsafe-eval'","'unsafe-inline'", "google-analytics.com"],
+          "imgSrc":["'self'","blob:","data:", "www.google-analytics.com", "cidadetransparente.softagon.app"],
+          "styleSrc":["'self'","'unsafe-inline'"],
+          "workerSrc":["'self'","data:","blob:","'unsafe-inline'","cdnjs.cloudflare.com"]
+        }
+      CONTENT_SECURITY_POLICY: "false"
+      CONTENT_SECURITY_POLICY_REPORT_ONLY: "true"
+      XDOWNLOADOPTIONS: "false"

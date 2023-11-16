@@ -1,0 +1,36 @@
+{
+	"name": "sign-pdf",
+	"description": "Endpoint to sign document files with a certificate",
+	"icon": "extension",
+	"version": "1.0.3",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-endpoint"
+	],
+	"type": "module",
+	"directus:extension": {
+		"type": "endpoint",
+		"path": "../../extensions/endpoints/sign-pdf/index.js",
+		"source": "src/index.ts",
+		"host": "^10.1.10"
+	},
+	"scripts": {
+		"build": "directus-extension build",
+		"dev": "directus-extension build -w --no-minify",
+		"link": "directus-extension link"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "^10.1.11",
+		"@types/luxon": "^3.3.2",
+		"@types/multer": "^1.4.8",
+		"@types/node": "^20.8.0",
+		"prettier": "^3.0.3",
+		"typescript": "^5.2.2"
+	},
+	"dependencies": {
+		"luxon": "^3.4.3",
+		"multer": "1.4.5-lts.1",
+		"pdf-signer-brazil": "^3.0.2"
+	}
+}

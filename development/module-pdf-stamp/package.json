@@ -1,0 +1,42 @@
+{
+	"name": "directus-extension-pdf-stamp",
+	"description": "Assine PDF com certificados ICP-Brasil",
+	"icon": "extension",
+	"version": "1.1.3",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-module"
+	],
+	"type": "module",
+	"directus:extension": {
+		"type": "module",
+		"path": "../../extensions/modules/directus-extension-pdf-stamp/index.js",
+		"source": "src/index.ts",
+		"host": "^10.1.10"
+	},
+	"scripts": {
+		"build": "directus-extension build",
+		"dev": "directus-extension build -w",
+		"link": "directus-extension link"
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "10.1.11",
+		"@types/luxon": "^3.3.2",
+		"eslint": "^8.51.0",
+		"eslint-config-prettier": "^9.0.0",
+		"fs": "0.0.1-security",
+		"html2canvas": "^1.4.1",
+		"interactjs": "^1.10.19",
+		"luxon": "^3.4.3",
+		"pdf-lib": "^1.17.1",
+		"pdf-signer-brazil": "^3.0.2",
+		"pdfjs-dist": "^3.11.174",
+		"prettier": "^3.0.3",
+		"typescript": "^5.2.2",
+		"vue": "^3.3.4"
+	},
+	"dependencies": {
+		"pnpm": "^8.9.2"
+	}
+}
